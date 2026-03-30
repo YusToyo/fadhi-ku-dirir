@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --forest: #2D5016;
+  --cream: #F5F0E8;
+  --charcoal: #2C2C2C;
+  --gold: #C9A84C;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.mic-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 8c-3.3 0-6 2.7-6 6v12c0 3.3 2.7 6 6 6s6-2.7 6-6V14c0-3.3-2.7-6-6-6zm10 18c0 5.5-4.5 10-10 10s-10-4.5-10-10h-2c0 6.3 4.8 11.5 11 12v6h2v-6c6.2-.5 11-5.7 11-12h-2z' fill='%232D5016' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-live-pulse {
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+
+.poll-bar {
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.comment-feed::-webkit-scrollbar {
+  width: 4px;
+}
+
+.comment-feed::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.comment-feed::-webkit-scrollbar-thumb {
+  background: #2D501640;
+  border-radius: 2px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(45, 80, 22, 0.1);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #2D5016 0%, #1E3A0E 50%, #2D5016 100%);
+}
+
+@keyframes speakingPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 80, 22, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(45, 80, 22, 0); }
+}
+
+.speaking-pulse {
+  animation: speakingPulse 2s ease-in-out infinite;
+}
