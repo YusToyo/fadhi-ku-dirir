@@ -275,7 +275,7 @@ function DebateControls({
                     : "bg-charcoal/10 text-charcoal/60 hover:bg-charcoal/20"
                 }`}
               >
-                Doodayaha A
+                Doode A
               </button>
               <button
                 onClick={() => onSelectFirst(1)}
@@ -285,7 +285,7 @@ function DebateControls({
                     : "bg-charcoal/10 text-charcoal/60 hover:bg-charcoal/20"
                 }`}
               >
-                Doodayaha B
+                Doode B
               </button>
               <button
                 onClick={onStart}
@@ -593,7 +593,7 @@ function RoomContent({ onLeave }: { onLeave: () => void }) {
 
   // Derive speaker labels
   const getSpeakerLabel = (debaterIdx: number) => {
-    if (!debateStarted) return debaterIdx === 0 ? "Doodayaha A" : "Doodayaha B";
+    if (!debateStarted) return debaterIdx === 0 ? "Doode A" : "Doode B";
     if (debaterIdx === speakerIndex) return "Hadlaya";
     return "Sugaya";
   };
@@ -664,7 +664,7 @@ function RoomContent({ onLeave }: { onLeave: () => void }) {
               ) : (
                 <div className="flex-1 flex items-center justify-center py-12 text-charcoal/30">
                   <p className="font-serif text-sm">
-                    Sugitaan Doodayaha B...
+                    Sugitaan Doode B......
                   </p>
                 </div>
               )}
