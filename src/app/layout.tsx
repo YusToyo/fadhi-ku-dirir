@@ -21,7 +21,7 @@ function Navbar() {
           </Link>
           <div className="flex items-center gap-6">
             <Link href="/" className="text-charcoal hover:text-forest transition-colors text-sm font-medium">
-              Guriga
+              Home
             </Link>
             <Link href="/archive" className="text-charcoal hover:text-forest transition-colors text-sm font-medium">
               Kaydka
@@ -79,7 +79,7 @@ function Footer() {
           <div>
             <h4 className="font-serif font-semibold mb-4 text-gold">Bogagga</h4>
             <div className="space-y-2 text-sm">
-              <Link href="/" className="block text-cream/70 hover:text-cream transition-colors">Guriga</Link>
+              <Link href="/" className="block text-cream/70 hover:text-cream transition-colors">Home</Link>
               <Link href="/debate/live-1" className="block text-cream/70 hover:text-cream transition-colors">Dood Toos ah</Link>
               <Link href="/archive" className="block text-cream/70 hover:text-cream transition-colors">Kaydka Doodaha</Link>
             </div>
