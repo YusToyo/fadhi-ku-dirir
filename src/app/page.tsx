@@ -58,7 +58,7 @@ export default function HomePage() {
                   <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
                   <line x1="12" y1="19" x2="12" y2="22" />
                 </svg>
-                Join Audience
+                Ka Qeybgal Doodda
               </Link>
             </div>
           </div>
@@ -221,7 +221,7 @@ export default function HomePage() {
               },
               {
                 step: "2",
-                title: "Daawad & Codee",
+                title: "Daawo & Codee",
                 titleEn: "Daawo Live & Vote",
                 desc: "Si toos ah u daawad doodda oo u codeey qofka aad taageerto.",
                 icon: (
