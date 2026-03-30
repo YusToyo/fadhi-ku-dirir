@@ -183,7 +183,7 @@ export default function LivePoll({
         {voted ? (
           <div className="text-center py-3 bg-forest/5 rounded-xl">
             <p className="text-forest font-semibold text-sm">
-              Codkeygii waa la xusay
+              Codkaada waa la tiriyay
             </p>
             <p className="text-charcoal/40 text-xs mt-1">
               {voted === "debaterA" ? debaterAName : debaterBName} ayaad u codaysay
