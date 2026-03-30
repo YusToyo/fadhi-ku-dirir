@@ -68,8 +68,8 @@ export default function JoinPage() {
   }
 
   const roles: { value: Role; label: string; desc: string }[] = [
-    { value: "debaterA", label: "Doode A", desc: "Muuji video & codka" },
-    { value: "debaterB", label: "Doode B", desc: "Muuji video & codka" },
+    { value: "debaterA", label: "Doodaha A", desc: "Muuji video & codka" },
+    { value: "debaterB", label: "Doodaha B", desc: "Muuji video & codka" },
     { value: "audience", label: "Daawade", desc: "Daawo kaliya" },
   ];
 
