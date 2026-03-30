@@ -82,3 +82,12 @@ body {
 .speaking-pulse {
   animation: speakingPulse 2s ease-in-out infinite;
 }
+
+@keyframes timerPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+}
+
+.timer-pulse {
+  animation: timerPulse 1s ease-in-out infinite;
+}
