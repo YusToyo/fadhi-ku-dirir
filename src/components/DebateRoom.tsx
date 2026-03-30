@@ -3,6 +3,7 @@
 import {
   LiveKitRoom,
   VideoTrack,
+  AudioTrack,
   useParticipants,
   useTracks,
   useLocalParticipant,
@@ -147,9 +148,21 @@ function RoomContent({ onLeave }: { onLeave: () => void }) {
   const debaters = participants.filter(
     (p) => p.permissions?.canPublish
   );
+  const audioTracks = useTracks([Track.Source.Microphone], {
+    onlySubscribed: true,
+  });
 
   return (
     <div className="min-h-screen bg-cream">
+      {/* Hidden audio elements for all remote participants */}
+      {audioTracks
+        .filter((t) => !t.participant.isLocal)
+        .map((t) => (
+          <AudioTrack
+            key={t.participant.sid + "-audio"}
+            trackRef={t}
+          />
+        ))}
       <div className="bg-forest-dark text-cream">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2 bg-red-600/90 px-3 py-1 rounded-full text-xs font-bold">
