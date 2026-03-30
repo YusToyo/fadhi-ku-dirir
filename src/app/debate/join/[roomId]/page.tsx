@@ -64,7 +64,7 @@ export default function JoinPage() {
   };
 
   if (token && wsUrl) {
-    return <DebateRoom token={token} wsUrl={wsUrl} onLeave={handleLeave} />;
+    return <DebateRoom token={token} wsUrl={wsUrl} onLeave={handleLeave} debateId={roomId} />;
   }
 
   const roles: { value: Role; label: string; desc: string }[] = [

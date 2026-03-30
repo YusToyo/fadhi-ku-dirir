@@ -4,6 +4,7 @@ import { liveDebate } from "@/lib/mock-data";
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import LivePoll from "@/components/LivePoll";
 
 function DebaterPanel({
   name,
@@ -185,24 +186,15 @@ export default function DebatePage() {
                 </Link>
               </div>
 
-              {/* Poll Bar */}
-              <div className="mt-6">
-                <div className="flex justify-between text-sm font-semibold mb-2">
-                  <span className="text-forest">{d.debaters[0].pollPercentage}%</span>
-                  <span className="text-charcoal/30 text-xs">Yaa guulaysanaya?</span>
-                  <span className="text-gold">{d.debaters[1].pollPercentage}%</span>
-                </div>
-                <div className="h-5 bg-cream-dark rounded-full overflow-hidden flex">
-                  <div
-                    className="bg-forest h-full rounded-l-full poll-bar"
-                    style={{ width: `${d.debaters[0].pollPercentage}%` }}
-                  />
-                  <div
-                    className="bg-gold h-full rounded-r-full poll-bar"
-                    style={{ width: `${d.debaters[1].pollPercentage}%` }}
-                  />
-                </div>
-              </div>
+            </div>
+
+            {/* Live Poll */}
+            <div className="mt-6">
+              <LivePoll
+                debateId={debateId}
+                debaterAName={d.debaters[0].name}
+                debaterBName={d.debaters[1].name}
+              />
             </div>
           </div>
 

@@ -16,6 +16,7 @@ import {
   RemoteParticipant,
 } from "livekit-client";
 import { useState, useEffect, useCallback, useRef } from "react";
+import LivePoll from "@/components/LivePoll";
 
 const DEFAULT_TURN_DURATION = 300; // 5 minutes in seconds
 
@@ -405,7 +406,7 @@ function DebateControls({
 }
 
 // --- Main Room Content ---
-function RoomContent({ onLeave }: { onLeave: () => void }) {
+function RoomContent({ onLeave, debateId }: { onLeave: () => void; debateId?: string }) {
   const participants = useParticipants();
   const room = useRoomContext();
   const { localParticipant } = useLocalParticipant();
@@ -693,6 +694,17 @@ function RoomContent({ onLeave }: { onLeave: () => void }) {
             onSelectFirst={handleSelectFirst}
           />
         </div>
+
+        {/* Live Poll */}
+        {debateId && (
+          <div className="mt-4">
+            <LivePoll
+              debateId={debateId}
+              debaterAName={debaters[0]?.name || debaters[0]?.identity || "Doodaha A"}
+              debaterBName={debaters[1]?.name || debaters[1]?.identity || "Doodaha B"}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -702,10 +714,12 @@ export default function DebateRoom({
   token,
   wsUrl,
   onLeave,
+  debateId,
 }: {
   token: string;
   wsUrl: string;
   onLeave: () => void;
+  debateId?: string;
 }) {
   return (
     <LiveKitRoom
@@ -716,7 +730,7 @@ export default function DebateRoom({
       audio={true}
       data-lk-theme="default"
     >
-      <RoomContent onLeave={onLeave} />
+      <RoomContent onLeave={onLeave} debateId={debateId} />
     </LiveKitRoom>
   );
 }
