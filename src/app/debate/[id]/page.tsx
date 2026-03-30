@@ -70,7 +70,7 @@ export default function DebatePage() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Header Bar */}
-      <div className="bg-forest text-cream">
+      <div className="bg-forest-dark text-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 bg-red-600/90 px-3 py-1 rounded-full text-xs font-bold">
@@ -100,7 +100,7 @@ export default function DebatePage() {
           {/* Main Debate Area */}
           <div className="flex-1">
             {/* Split Screen Debaters */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-cream-light rounded-2xl shadow-xl overflow-hidden border-l-4 border-l-forest">
               <div className="flex flex-col sm:flex-row">
                 <DebaterPanel
                   name={d.debaters[0].name}
@@ -126,12 +126,12 @@ export default function DebatePage() {
             </div>
 
             {/* Timer & Controls */}
-            <div className="mt-6 bg-white rounded-xl shadow-md p-6">
+            <div className="mt-6 bg-cream-light rounded-xl shadow-md p-6">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 {/* Timer */}
                 <div className="text-center sm:text-left">
                   <p className="text-charcoal/40 text-xs uppercase tracking-wider mb-1">Waqtiga Haray</p>
-                  <div className="font-serif text-4xl font-bold text-forest tabular-nums">
+                  <div className="font-serif text-4xl font-bold text-gold tabular-nums">
                     {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
                   </div>
                 </div>
@@ -193,7 +193,7 @@ export default function DebatePage() {
 
           {/* Comment Feed */}
           <div className="w-full lg:w-80 xl:w-96">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
+            <div className="bg-cream-light rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
               <div className="bg-forest/5 px-5 py-3 border-b border-forest/10 flex items-center justify-between">
                 <h3 className="font-serif font-bold text-forest">Faallooyinka</h3>
                 <span className="text-xs text-charcoal/40">{d.comments.length} faallo</span>

@@ -22,35 +22,36 @@ export default function HomePage() {
   return (
     <div className="mic-pattern">
       {/* Hero Section */}
-      <section className="hero-gradient text-cream py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-40 h-40 border border-cream/20 rounded-full" />
-          <div className="absolute bottom-10 right-10 w-60 h-60 border border-cream/20 rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-cream/10 rounded-full" />
+      <section className="hero-cream py-20 sm:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-40 h-40 border-2 border-forest rounded-full" />
+          <div className="absolute bottom-10 right-10 w-60 h-60 border-2 border-forest rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-forest rounded-full" />
+          <div className="absolute top-20 right-1/4 w-32 h-32 border border-gold rounded-full" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-3xl mx-auto">
             <div className="flex justify-center mb-6">
-              <Image src="/logo.jpg" alt="Fadhi Ku Dirir" width={80} height={80} className="rounded-lg shadow-xl" />
+              <Image src="/logo-transparent.png" alt="Fadhi Ku Dirir" width={100} height={100} className="h-24 w-auto drop-shadow-lg" />
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight text-charcoal">
               The Somali<br />
-              <span className="text-gold">Debate Platform</span>
+              <span className="text-forest">Debate Platform</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-cream/80 font-light mb-8">
+            <p className="text-xl sm:text-2xl text-forest/80 font-light mb-8">
               Watch, Vote, Decide
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/debate/live-1"
-                className="bg-gold text-charcoal px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-gold-light transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                className="bg-forest text-cream px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-forest-dark transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
               >
-                <span className="w-2.5 h-2.5 bg-red-600 rounded-full animate-live-pulse" />
+                <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-live-pulse" />
                 Watch Live
               </Link>
               <Link
                 href="/debate/live-1"
-                className="border-2 border-cream/40 text-cream px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-cream/10 transition-all flex items-center justify-center gap-2"
+                className="border-2 border-gold text-gold px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-gold hover:text-charcoal transition-all flex items-center justify-center gap-2"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
@@ -65,26 +66,30 @@ export default function HomePage() {
       </section>
 
       {/* Featured Live Debate */}
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
-              <span className="w-2 h-2 bg-red-500 rounded-full animate-live-pulse" />
+            <div className="inline-flex items-center gap-2 bg-forest/10 text-forest px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
+              <span className="w-2 h-2 bg-forest rounded-full animate-live-pulse" />
               TOOS — LIVE NOW
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-forest">Doodda Socota</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">Doodda Socota</h2>
           </div>
 
           <Link href="/debate/live-1" className="block">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
-              <div className="bg-forest/5 px-6 py-4 border-b border-forest/10">
-                <h3 className="font-serif text-lg sm:text-xl font-bold text-charcoal text-center">
+            <div className="bg-cream-light rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow border-l-4 border-l-forest">
+              <div className="bg-forest/5 px-6 py-4 border-b border-forest/10 flex items-center justify-between">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-charcoal">
                   {d.topic}
                 </h3>
-                <p className="text-charcoal/50 text-sm text-center mt-1">{d.topicEn}</p>
+                <span className="bg-forest text-cream text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-cream rounded-full animate-live-pulse" />
+                  LIVE
+                </span>
               </div>
 
               <div className="p-6 sm:p-10">
+                <p className="text-charcoal/50 text-sm text-center mb-6">{d.topicEn}</p>
                 <div className="flex items-center justify-between gap-4 sm:gap-8">
                   <div className="flex-1 text-center">
                     <div className="flex justify-center">
@@ -98,7 +103,7 @@ export default function HomePage() {
                     <div className="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center">
                       <span className="font-serif font-bold text-gold text-lg">VS</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-charcoal/50 text-sm">
+                    <div className="flex items-center gap-1.5 text-gold text-sm font-medium">
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                         <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -121,7 +126,7 @@ export default function HomePage() {
                     <span className="text-forest">{d.debaters[0].name} — {d.debaters[0].pollPercentage}%</span>
                     <span className="text-gold">{d.debaters[1].name} — {d.debaters[1].pollPercentage}%</span>
                   </div>
-                  <div className="h-4 bg-cream-dark rounded-full overflow-hidden flex">
+                  <div className="h-4 bg-cream rounded-full overflow-hidden flex">
                     <div
                       className="bg-forest h-full rounded-l-full transition-all duration-1000"
                       style={{ width: `${d.debaters[0].pollPercentage}%` }}
@@ -140,23 +145,21 @@ export default function HomePage() {
       </section>
 
       {/* Upcoming Debates */}
-      <section className="py-16 bg-white/50">
+      <section className="py-16 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-forest text-center mb-10">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal text-center mb-10">
             Doodaha Soo Socda
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {upcomingDebates.map((debate) => (
               <div
                 key={debate.id}
-                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden group"
+                className="bg-cream-light rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden group border-t-4 border-t-forest"
               >
-                <div className="bg-forest/5 p-4 border-b border-forest/10">
-                  <span className="text-xs font-semibold text-forest/60 uppercase tracking-wider">
+                <div className="p-5">
+                  <span className="inline-block bg-forest/10 text-forest text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
                     {debate.category}
                   </span>
-                </div>
-                <div className="p-5">
                   <h3 className="font-serif font-bold text-lg mb-1 group-hover:text-forest transition-colors">
                     {debate.topic}
                   </h3>
@@ -164,10 +167,10 @@ export default function HomePage() {
 
                   <div className="flex items-center gap-3 mb-4">
                     <div className="flex -space-x-2">
-                      <div className="w-8 h-8 rounded-full bg-forest text-cream flex items-center justify-center text-xs font-bold border-2 border-white">
+                      <div className="w-8 h-8 rounded-full bg-forest text-cream flex items-center justify-center text-xs font-bold border-2 border-cream-light">
                         {debate.debaters[0].avatar}
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-gold text-charcoal flex items-center justify-center text-xs font-bold border-2 border-white">
+                      <div className="w-8 h-8 rounded-full bg-gold text-charcoal flex items-center justify-center text-xs font-bold border-2 border-cream-light">
                         {debate.debaters[1].avatar}
                       </div>
                     </div>
@@ -177,8 +180,8 @@ export default function HomePage() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="text-sm text-charcoal/50">
-                      <span className="font-medium">
+                    <div className="text-sm text-gold font-medium">
+                      <span className="font-semibold">
                         {new Date(debate.date).toLocaleDateString("so-SO", {
                           month: "short",
                           day: "numeric",
@@ -198,9 +201,9 @@ export default function HomePage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-forest text-center mb-12">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal text-center mb-12">
             Sidee u Shaqeysaa?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -241,12 +244,16 @@ export default function HomePage() {
               },
             ].map((item) => (
               <div key={item.step} className="text-center group">
-                <div className="w-20 h-20 rounded-full bg-forest/10 flex items-center justify-center mx-auto mb-5 text-forest group-hover:bg-forest group-hover:text-cream transition-all duration-300">
-                  {item.icon}
+                <div className="relative mx-auto mb-5">
+                  <div className="w-20 h-20 rounded-full bg-cream-light border-2 border-forest flex items-center justify-center mx-auto text-forest group-hover:bg-forest group-hover:text-cream transition-all duration-300">
+                    {item.icon}
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-forest text-cream flex items-center justify-center text-sm font-serif font-bold">
+                    {item.step}
+                  </div>
                 </div>
-                <div className="text-gold font-serif font-bold text-sm mb-1">Tallaabada {item.step}</div>
-                <h3 className="font-serif font-bold text-xl mb-1">{item.title}</h3>
-                <p className="text-charcoal/40 text-xs mb-2">{item.titleEn}</p>
+                <h3 className="font-serif font-bold text-xl mb-1 text-charcoal">{item.title}</h3>
+                <p className="text-forest/60 text-xs mb-2 font-medium">{item.titleEn}</p>
                 <p className="text-charcoal/60 text-sm">{item.desc}</p>
               </div>
             ))}
@@ -255,20 +262,20 @@ export default function HomePage() {
       </section>
 
       {/* Community Poll */}
-      <section className="py-16 sm:py-20 bg-white/50">
+      <section className="py-16 sm:py-20 bg-cream-light">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-forest">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">
               U Codee Mawduuca Xiga
             </h2>
-            <p className="text-charcoal/50 mt-2">Vote for the next debate topic</p>
+            <p className="text-forest/70 mt-2 font-medium">Vote for the next debate topic</p>
           </div>
 
           <div className="space-y-4">
-            {communityPollTopics.map((topic, i) => (
+            {communityPollTopics.map((topic) => (
               <div
                 key={topic.id}
-                className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
+                className="bg-[#F5F0E8] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer group border border-forest/10"
               >
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div className="flex-1">
@@ -277,15 +284,18 @@ export default function HomePage() {
                   </div>
                   <span className="font-serif font-bold text-lg text-forest">{topic.percentage}%</span>
                 </div>
-                <div className="h-2 bg-cream rounded-full overflow-hidden">
+                <div className="h-2.5 bg-cream-dark rounded-full overflow-hidden">
                   <div
-                    className={`h-full rounded-full transition-all duration-1000 ${
-                      i === 0 ? "bg-forest" : i === 1 ? "bg-forest/70" : i === 2 ? "bg-gold" : "bg-gold/60"
-                    }`}
+                    className="h-full rounded-full transition-all duration-1000 bg-forest"
                     style={{ width: `${topic.percentage}%` }}
                   />
                 </div>
-                <p className="text-charcoal/30 text-xs mt-1.5">{topic.votes.toLocaleString()} codad</p>
+                <div className="flex items-center justify-between mt-2">
+                  <p className="text-charcoal/30 text-xs">{topic.votes.toLocaleString()} codad</p>
+                  <button className="text-xs font-semibold bg-gold text-charcoal px-4 py-1.5 rounded-full hover:bg-gold-light transition-colors opacity-0 group-hover:opacity-100">
+                    Codee
+                  </button>
+                </div>
               </div>
             ))}
           </div>

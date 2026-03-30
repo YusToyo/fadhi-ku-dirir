@@ -12,11 +12,12 @@ const config: Config = {
         forest: {
           DEFAULT: "#2D5016",
           light: "#3A6B1E",
-          dark: "#1E3A0E",
+          dark: "#1E3A0F",
         },
         cream: {
           DEFAULT: "#F5F0E8",
           dark: "#EBE4D6",
+          light: "#EDE8DC",
         },
         charcoal: "#2C2C2C",
         gold: {
@@ -25,7 +26,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
+        serif: ["'Playfair Display'", "Georgia", "Cambria", "Times New Roman", "serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       animation: {

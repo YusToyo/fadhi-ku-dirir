@@ -10,31 +10,28 @@ export const metadata: Metadata = {
 
 function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-forest/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F0E8] border-b-2 border-gold shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.jpg" alt="Fadhi Ku Dirir" width={40} height={40} className="rounded" />
-            <span className="font-serif text-forest font-bold text-lg hidden sm:block">
+            <Image src="/logo-transparent.png" alt="Fadhi Ku Dirir" width={72} height={72} className="h-16 w-auto" />
+            <span className="font-serif text-forest font-bold text-xl hidden sm:block tracking-wide">
               FADHI KU DIRIR
             </span>
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/" className="text-charcoal/70 hover:text-forest transition-colors text-sm font-medium">
+            <Link href="/" className="text-charcoal hover:text-forest transition-colors text-sm font-medium">
               Guriga
             </Link>
-            <Link href="/debate/live-1" className="text-charcoal/70 hover:text-forest transition-colors text-sm font-medium flex items-center gap-1.5">
-              <span className="w-2 h-2 bg-red-500 rounded-full animate-live-pulse" />
-              Live
-            </Link>
-            <Link href="/archive" className="text-charcoal/70 hover:text-forest transition-colors text-sm font-medium">
+            <Link href="/archive" className="text-charcoal hover:text-forest transition-colors text-sm font-medium">
               Kaydka
             </Link>
             <Link
               href="/debate/live-1"
-              className="bg-forest text-cream px-4 py-2 rounded-full text-sm font-semibold hover:bg-forest-light transition-colors hidden sm:block"
+              className="bg-forest text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-forest-dark transition-colors flex items-center gap-2 shadow-md"
             >
-              Ku Biir
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-live-pulse" />
+              Watch Live
             </Link>
           </div>
         </div>
@@ -45,12 +42,12 @@ function Navbar() {
 
 function Footer() {
   return (
-    <footer className="bg-forest text-cream">
+    <footer className="bg-forest-dark text-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.jpg" alt="Fadhi Ku Dirir" width={48} height={48} className="rounded brightness-110" />
+              <Image src="/logo-transparent.png" alt="Fadhi Ku Dirir" width={56} height={56} className="h-14 w-auto brightness-110 invert-[.15]" />
               <div>
                 <h3 className="font-serif font-bold text-lg">FADHI KU DIRIR</h3>
                 <p className="text-cream/60 text-xs">Debate Platform | Endless Ideas & Dialogue</p>
@@ -103,9 +100,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="so">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-sans antialiased bg-cream text-charcoal">
         <Navbar />
-        <main className="pt-16">{children}</main>
+        <main className="pt-20">{children}</main>
         <Footer />
       </body>
     </html>

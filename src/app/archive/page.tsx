@@ -15,12 +15,12 @@ export default function ArchivePage() {
   return (
     <div className="min-h-screen bg-cream mic-pattern">
       {/* Header */}
-      <section className="bg-forest text-cream py-12 sm:py-16">
+      <section className="bg-cream border-b-2 border-gold py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-charcoal">
             Kaydka Doodaha
           </h1>
-          <p className="text-cream/60 text-lg">Past Debates Archive</p>
+          <p className="text-forest/70 text-lg">Past Debates Archive</p>
         </div>
       </section>
 
@@ -48,7 +48,7 @@ export default function ArchivePage() {
             <Link
               key={debate.id}
               href={`/debate/${debate.id}`}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden group"
+              className="bg-cream-light rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden group border-t-4 border-t-forest"
             >
               {/* Thumbnail placeholder */}
               <div className="aspect-video bg-gradient-to-br from-forest/10 to-gold/10 relative flex items-center justify-center">
