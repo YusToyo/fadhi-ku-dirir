@@ -2,6 +2,8 @@
 
 import { liveDebate } from "@/lib/mock-data";
 import { useState } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 
 function DebaterPanel({
   name,
@@ -62,6 +64,8 @@ function DebaterPanel({
 }
 
 export default function DebatePage() {
+  const params = useParams();
+  const debateId = params.id as string;
   const d = liveDebate;
   const [voted, setVoted] = useState<string | null>(null);
   const [minutes] = useState(23);
@@ -168,6 +172,17 @@ export default function DebatePage() {
                     {d.debaters[1].avatar}
                   </button>
                 </div>
+              </div>
+
+              {/* Join Live Room */}
+              <div className="mt-6 flex justify-center">
+                <Link
+                  href={`/debate/join/${debateId}`}
+                  className="inline-flex items-center gap-2 bg-forest text-cream px-8 py-3 rounded-full font-semibold hover:bg-forest-light transition-colors shadow-lg hover:shadow-xl"
+                >
+                  <span className="w-2.5 h-2.5 bg-red-400 rounded-full animate-live-pulse" />
+                  Ku Biir Qolka Tooska ah
+                </Link>
               </div>
 
               {/* Poll Bar */}
