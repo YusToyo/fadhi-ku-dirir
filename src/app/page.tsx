@@ -35,11 +35,11 @@ export default function HomePage() {
               <Image src="/logo-transparent.png" alt="Fadhi Ku Dirir" width={100} height={100} className="h-24 w-auto drop-shadow-lg" />
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight text-charcoal">
-              The Somali<br />
-              <span className="text-forest">Debate Platform</span>
+              Madasha Doodaha<br />
+              <span className="text-forest">Soomaaliyeed</span>
             </h1>
             <p className="text-xl sm:text-2xl text-forest/80 font-light mb-8">
-              Watch, Vote, Decide
+              Daawo, Codeey, Go&apos;aanso
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
