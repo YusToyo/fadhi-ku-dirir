@@ -47,7 +47,7 @@ export default function HomePage() {
                 className="bg-forest text-cream px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-forest-dark transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
               >
                 <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-live-pulse" />
-                Watch Live
+                Daawo Live
               </Link>
               <Link
                 href="/debate/live-1"
@@ -222,7 +222,7 @@ export default function HomePage() {
               {
                 step: "2",
                 title: "Daawad & Codee",
-                titleEn: "Watch Live & Vote",
+                titleEn: "Daawo Live & Vote",
                 desc: "Si toos ah u daawad doodda oo u codeey qofka aad taageerto.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">

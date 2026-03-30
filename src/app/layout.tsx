@@ -31,7 +31,7 @@ function Navbar() {
               className="bg-forest text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-forest-dark transition-colors flex items-center gap-2 shadow-md"
             >
               <span className="w-2 h-2 bg-red-500 rounded-full animate-live-pulse" />
-              Watch Live
+              Daawo Live
             </Link>
           </div>
         </div>
