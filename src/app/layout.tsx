@@ -58,7 +58,7 @@ function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-serif font-semibold mb-4 text-gold">Xiriiriyaha</h4>
+            <h4 className="font-serif font-semibold mb-4 text-gold">Social Media</h4>
             <div className="flex gap-4">
               {[
                 { name: "YouTube", icon: "▶" },
