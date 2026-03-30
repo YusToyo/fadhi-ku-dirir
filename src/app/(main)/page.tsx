@@ -4,6 +4,8 @@ import { liveDebate as mockLiveDebate, upcomingDebates as mockUpcoming, communit
 import { isSanityConfigured, getLiveDebate, getDebates } from "@/lib/sanity";
 import type { Debate } from "@/lib/mock-data";
 
+export const dynamic = "force-dynamic";
+
 function sanityToDebate(s: Record<string, unknown>): Debate {
   const nameA = (s.debaterA as Record<string, string>)?.name || "Debater A";
   const nameB = (s.debaterB as Record<string, string>)?.name || "Debater B";

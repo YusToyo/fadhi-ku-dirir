@@ -1,21 +1,25 @@
-import { createClient } from "@sanity/client";
+import { createClient, type SanityClient } from "@sanity/client";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
+let _client: SanityClient | null = null;
 
-export const sanityClient = createClient({
-  projectId,
-  dataset,
-  useCdn: true,
-  apiVersion: "2024-01-01",
-});
+function getClient(): SanityClient {
+  if (!_client) {
+    _client = createClient({
+      projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
+      dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+      useCdn: true,
+      apiVersion: "2024-01-01",
+    });
+  }
+  return _client;
+}
 
 export function isSanityConfigured(): boolean {
-  return !!projectId;
+  return !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 }
 
 export async function getDebates() {
-  return sanityClient.fetch(
+  return getClient().fetch(
     `*[_type == "debate" && isPublished == true] | order(scheduledAt desc) {
       _id,
       title,
@@ -33,7 +37,7 @@ export async function getDebates() {
 }
 
 export async function getDebateBySlug(slug: string) {
-  return sanityClient.fetch(
+  return getClient().fetch(
     `*[_type == "debate" && slug.current == $slug][0] {
       _id,
       title,
@@ -52,7 +56,7 @@ export async function getDebateBySlug(slug: string) {
 }
 
 export async function getLiveDebate() {
-  return sanityClient.fetch(
+  return getClient().fetch(
     `*[_type == "debate" && isLive == true][0] {
       _id,
       title,
