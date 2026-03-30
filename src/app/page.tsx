@@ -1,6 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
-import { liveDebate, upcomingDebates, communityPollTopics } from "@/lib/mock-data";
+import { liveDebate as mockLiveDebate, upcomingDebates as mockUpcoming, communityPollTopics } from "@/lib/mock-data";
+import { isSanityConfigured, getLiveDebate, getDebates } from "@/lib/sanity";
+import type { Debate } from "@/lib/mock-data";
+
+function sanityToDebate(s: Record<string, unknown>): Debate {
+  const nameA = (s.debaterA as Record<string, string>)?.name || "Debater A";
+  const nameB = (s.debaterB as Record<string, string>)?.name || "Debater B";
+  return {
+    id: s.slug as string || s._id as string,
+    topic: s.title as string,
+    topicEn: (s.titleEn as string) || "",
+    category: (s.category as string) || "Siyaasad",
+    debaters: [
+      { name: nameA, title: (s.debaterA as Record<string, string>)?.title || "", avatar: nameA.split(" ").map((w: string) => w[0]).join("").slice(0, 2), pollPercentage: 50 },
+      { name: nameB, title: (s.debaterB as Record<string, string>)?.title || "", avatar: nameB.split(" ").map((w: string) => w[0]).join("").slice(0, 2), pollPercentage: 50 },
+    ],
+    date: s.scheduledAt ? new Date(s.scheduledAt as string).toISOString().split("T")[0] : "",
+    time: s.scheduledAt ? new Date(s.scheduledAt as string).toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit", hour12: false }) : "",
+    isLive: (s.isLive as boolean) || false,
+    viewers: 0,
+    comments: [],
+  };
+}
 
 function DebaterAvatar({ initials, side }: { initials: string; side: "left" | "right" }) {
   return (
@@ -16,7 +38,26 @@ function DebaterAvatar({ initials, side }: { initials: string; side: "left" | "r
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  let liveDebate = mockLiveDebate;
+  let upcomingDebates = mockUpcoming;
+
+  if (isSanityConfigured()) {
+    try {
+      const [sanityLive, sanityAll] = await Promise.all([getLiveDebate(), getDebates()]);
+      if (sanityLive) liveDebate = sanityToDebate(sanityLive);
+      if (sanityAll?.length) {
+        const upcoming = (sanityAll as Record<string, unknown>[])
+          .filter((d: Record<string, unknown>) => !d.isLive)
+          .slice(0, 3)
+          .map(sanityToDebate);
+        if (upcoming.length) upcomingDebates = upcoming;
+      }
+    } catch {
+      // Fall back to mock data
+    }
+  }
+
   const d = liveDebate;
 
   return (

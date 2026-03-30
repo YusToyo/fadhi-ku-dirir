@@ -1,11 +1,49 @@
 "use client";
 
-import { archivedDebates, categories } from "@/lib/mock-data";
+import { archivedDebates as mockArchived, categories } from "@/lib/mock-data";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { isSanityConfigured, getDebates } from "@/lib/sanity";
+import type { Debate } from "@/lib/mock-data";
+
+function sanityToArchiveDebate(s: Record<string, unknown>): Debate {
+  const nameA = (s.debaterA as Record<string, string>)?.name || "Debater A";
+  const nameB = (s.debaterB as Record<string, string>)?.name || "Debater B";
+  return {
+    id: s.slug as string || s._id as string,
+    topic: s.title as string,
+    topicEn: (s.titleEn as string) || "",
+    category: (s.category as string) || "Siyaasad",
+    debaters: [
+      { name: nameA, title: (s.debaterA as Record<string, string>)?.title || "", avatar: nameA.split(" ").map((w: string) => w[0]).join("").slice(0, 2), pollPercentage: 50 },
+      { name: nameB, title: (s.debaterB as Record<string, string>)?.title || "", avatar: nameB.split(" ").map((w: string) => w[0]).join("").slice(0, 2), pollPercentage: 50 },
+    ],
+    date: s.scheduledAt ? new Date(s.scheduledAt as string).toISOString().split("T")[0] : "",
+    time: s.scheduledAt ? new Date(s.scheduledAt as string).toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit", hour12: false }) : "",
+    isLive: false,
+    viewers: 0,
+    comments: [],
+  };
+}
 
 export default function ArchivePage() {
   const [activeCategory, setActiveCategory] = useState("Dhammaan");
+  const [archivedDebates, setArchivedDebates] = useState(mockArchived);
+
+  useEffect(() => {
+    if (isSanityConfigured()) {
+      getDebates()
+        .then((data) => {
+          if (data?.length) {
+            const debates = (data as Record<string, unknown>[])
+              .filter((d: Record<string, unknown>) => !d.isLive)
+              .map(sanityToArchiveDebate);
+            if (debates.length) setArchivedDebates(debates);
+          }
+        })
+        .catch(() => {});
+    }
+  }, []);
 
   const filtered =
     activeCategory === "Dhammaan"
